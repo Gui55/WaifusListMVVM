@@ -42,6 +42,11 @@ class MainActivity : AppCompatActivity() {
     private fun observations() {
         viewmodel.msg.observe(this, Observer {
             Toast.makeText(this, it, Toast.LENGTH_SHORT).show()
+
+            if(it=="Login successful"){
+                startActivity(Intent(this, WaifusListActivity::class.java))
+                finish()
+            }
         })
 
         viewmodel.selImage.observe(this, Observer {

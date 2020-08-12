@@ -1,10 +1,16 @@
 package com.example.newkotlinproject.repository
 
 import android.graphics.Bitmap
+import androidx.lifecycle.MutableLiveData
 import com.example.newkotlinproject.database.UserDAO
 import com.example.newkotlinproject.model.User
+import com.example.newkotlinproject.model.Waifu
+import com.example.newkotlinproject.webservices.Requisition
 import org.koin.standalone.KoinComponent
 import org.koin.standalone.inject
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class UserRepository : KoinComponent{
 
@@ -13,6 +19,7 @@ class UserRepository : KoinComponent{
     }
 
     private val userDao : UserDAO by inject()
+    private val requisition: Requisition by inject()
 
     //Suspend functions so podem ser chamadas de outra suspend function, ou de uma coroutina
     suspend fun createUser(email: String, username: String, password: String, image: Bitmap) : User{
@@ -47,6 +54,28 @@ class UserRepository : KoinComponent{
 
     suspend fun getUserImageByName(name: String) : Bitmap {
         return userDao.getUserImageByName(name)
+    }
+
+    fun getTheWaifus() : MutableLiveData<ArrayList<Waifu>>{
+
+        var theWaifus = MutableLiveData<ArrayList<Waifu>>()
+
+        requisition.getWaifus().enqueue(object: Callback<ArrayList<Waifu>>{
+            override fun onFailure(call: Call<ArrayList<Waifu>>, t: Throwable) {
+                TODO("Not yet implemented")
+            }
+
+            override fun onResponse(
+                call: Call<ArrayList<Waifu>>,
+                response: Response<ArrayList<Waifu>>
+            ) {
+                theWaifus.value = response.body()
+            }
+
+        })
+
+        return theWaifus
+
     }
 
 }
