@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="square_a">160dp</dimen>
+    <dimen name="default_square">130dp</dimen>
+    <dimen name="square_cover">143dp</dimen>
+    <dimen name="left_text_padding">10dp</dimen>
+    <dimen name="button_height">60dp</dimen>
+    <dimen name="small_button">50dp</dimen>
+
+</resources>

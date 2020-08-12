@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Waifus</string>
+    <string name="user_create_button">Create a new User</string>
+    <string name="login_button">Login</string>
+    <string name="type_email">Type your e-mail</string>
+    <string name="type_username">Create an username</string>
+    <string name="enter_login_username">Enter your username</string>
+    <string name="create_password">Create a password</string>
+    <string name="confirm_password">Confirm your password</string>
+    <string name="enter_login_password">Enter your password</string>
+    <string name="user_creation">Create user</string>
+</resources>

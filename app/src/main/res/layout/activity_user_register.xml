@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/brancoRoaseado"
+    tools:context=".ui.view.UserRegisterActivity">
+
+    <RelativeLayout
+        android:id="@+id/imageLayout"
+        android:layout_width="@dimen/square_cover"
+        android:layout_height="@dimen/square_cover"
+        android:gravity="center"
+        android:background="@drawable/cardboarder"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/registerUserPhoto"
+            android:layout_width="@dimen/default_square"
+            android:layout_height="@dimen/default_square"
+            android:src="@drawable/waifus_symbol_a"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </RelativeLayout>
+
+    <ImageButton
+        android:id="@+id/registerTakePhoto"
+        android:onClick="photoFromCamera"
+        android:layout_width="@dimen/small_button"
+        android:layout_height="@dimen/small_button"
+        android:layout_marginTop="40dp"
+        android:src="@drawable/camera"
+        android:background="@drawable/cardboarder"
+        app:layout_constraintEnd_toStartOf="@+id/imageLayout"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/registerGetImage"
+        android:onClick="photoFromStorage"
+        android:src="@drawable/image"
+        android:layout_width="@dimen/small_button"
+        android:layout_height="@dimen/small_button"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/cardboarder"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageLayout"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/registerEmail"
+        android:textColor="@color/tabWord"
+        android:paddingLeft="@dimen/left_text_padding"
+        android:background="@drawable/cardboarder"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/button_height"
+        android:hint="@string/type_email"
+        app:layout_constraintTop_toBottomOf="@+id/imageLayout" />
+
+    <EditText
+        android:id="@+id/registerUsername"
+        android:textColor="@color/tabWord"
+        android:paddingLeft="@dimen/left_text_padding"
+        android:background="@drawable/cardboarder"
+        android:hint="@string/type_username"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/button_height"
+        app:layout_constraintTop_toBottomOf="@+id/registerEmail" />
+
+    <EditText
+        android:id="@+id/registerPassword"
+        android:textColor="@color/tabWord"
+        android:inputType="textPassword"
+        android:paddingLeft="@dimen/left_text_padding"
+        android:background="@drawable/cardboarder"
+        android:hint="@string/create_password"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/button_height"
+        app:layout_constraintTop_toBottomOf="@+id/registerUsername" />
+
+    <EditText
+        android:id="@+id/registerConfPassword"
+        android:textColor="@color/tabWord"
+        android:inputType="textPassword"
+        android:paddingLeft="@dimen/left_text_padding"
+        android:background="@drawable/cardboarder"
+        android:hint="@string/confirm_password"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/button_height"
+        app:layout_constraintTop_toBottomOf="@+id/registerPassword" />
+
+    <Button
+        android:onClick="createTheUser"
+        android:text="@string/user_creation"
+        android:textColor="@color/tabWord"
+        android:background="@drawable/cardboarder"
+        android:layout_width="@dimen/square_a"
+        android:layout_height="@dimen/button_height"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/registerConfPassword" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

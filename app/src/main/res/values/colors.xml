@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#6200EE</color>
+    <color name="colorPrimaryDark">#3700B3</color>
+    <color name="colorAccent">#03DAC5</color>
+    <color name="rosaTab">#ffd3fb</color>
+    <color name="tabWord">#fd5cde</color>
+    <color name="rectSelect">#fd5cde</color>
+    <color name="brancoRoaseado">#ffeff6</color>
+    <color name="fundoCard">#ffffe0</color>
+</resources>
