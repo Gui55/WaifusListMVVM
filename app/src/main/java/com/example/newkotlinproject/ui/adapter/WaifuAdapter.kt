@@ -6,10 +6,11 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.newkotlinproject.R
 import com.example.newkotlinproject.model.Waifu
+import com.example.newkotlinproject.viewmodel.WaifuListViewModel
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.waifu_recycler_line.view.*
 
-class WaifuAdapter(val theWaifus : ArrayList<Waifu>) : RecyclerView.Adapter<WaifuAdapter.WaifuViewHolder>() {
+class WaifuAdapter(val theWaifus : ArrayList<Waifu>, val viewModel: WaifuListViewModel) : RecyclerView.Adapter<WaifuAdapter.WaifuViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): WaifuViewHolder {
         return WaifuViewHolder(
@@ -28,6 +29,10 @@ class WaifuAdapter(val theWaifus : ArrayList<Waifu>) : RecyclerView.Adapter<Waif
 
         holder.name.text = currentWaifu.name
         holder.source.text = currentWaifu.source
+
+        holder.itemView.setOnClickListener(View.OnClickListener {
+            viewModel.passToRepClickWaifu(currentWaifu)
+        })
     }
 
     class WaifuViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {

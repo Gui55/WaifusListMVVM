@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/brancoRoaseado"
+    tools:context=".ui.view.WaifuDetailsActivity">
+
+    <TextView
+        android:id="@+id/waifuDetailsTitle"
+        android:text="Title"
+        android:gravity="center"
+        android:textColor="@color/tabWord"
+        android:textSize="@dimen/waifu_details_title"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/button_height"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_width="@dimen/square_cover"
+        android:layout_height="@dimen/square_cover"
+        app:cardCornerRadius="11dip"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/waifuDetailsTitle">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="10dp"
+            android:background="@drawable/cardboarder">
+
+            <ImageView
+                android:id="@+id/waifuDetailsImage"
+                android:layout_width="@dimen/square_cover"
+                android:layout_height="@dimen/square_cover" />
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <ScrollView
+        android:id="@+id/scrollDescription"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/scroll_height"
+        app:layout_constraintTop_toBottomOf="@+id/cardView" >
+
+        <TextView
+            android:id="@+id/waifuDetailsDescription"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textColor="@color/tabWord"
+            android:textSize="@dimen/recycler_text_size"/>
+
+    </ScrollView>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/scroll_second_height"
+        app:layout_constraintTop_toBottomOf="@+id/scrollDescription">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

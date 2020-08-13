@@ -12,14 +12,15 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class UserRepository : KoinComponent{
+class DataRepository : KoinComponent{
 
     companion object{
-        val instance = UserRepository()
+        val instance = DataRepository()
     }
 
     private val userDao : UserDAO by inject()
     private val requisition: Requisition by inject()
+    lateinit private var clickedWaifu : Waifu
 
     //Suspend functions so podem ser chamadas de outra suspend function, ou de uma coroutina
     suspend fun createUser(email: String, username: String, password: String, image: Bitmap) : User{
@@ -76,6 +77,14 @@ class UserRepository : KoinComponent{
 
         return theWaifus
 
+    }
+
+    fun setClickedWaifu(waifu: Waifu) {
+        clickedWaifu = waifu
+    }
+
+    fun getClickedWaifu() : Waifu{
+        return clickedWaifu
     }
 
 }

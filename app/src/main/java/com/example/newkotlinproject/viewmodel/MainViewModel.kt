@@ -5,7 +5,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.newkotlinproject.repository.UserRepository
+import com.example.newkotlinproject.repository.DataRepository
 import kotlinx.coroutines.launch
 
 class MainViewModel : ViewModel() {
@@ -20,7 +20,7 @@ class MainViewModel : ViewModel() {
 
         if(isItFullfilled(name, password)){
             viewModelScope.launch {
-                when(UserRepository.instance.userIsCorrect(name, password)){
+                when(DataRepository.instance.userIsCorrect(name, password)){
 
                     0 -> mutableMsg.value = "Login successful"
                     1 -> mutableMsg.value = "Wrong password"
@@ -37,7 +37,7 @@ class MainViewModel : ViewModel() {
     fun getUserImageByName(name: String) {
 
         viewModelScope.launch {
-            mutableSelImage.value = UserRepository.instance.getUserImageByName(name)
+            mutableSelImage.value = DataRepository.instance.getUserImageByName(name)
         }
     }
 

@@ -12,8 +12,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 val theModule = module {
     single { Room.databaseBuilder(androidContext(), UserDatabase::class.java, "userdatabase.db").build().userDao() }
     single {Retrofit.Builder()
-        .baseUrl(BuildConfig.ApiUrl
-        )
+        .baseUrl(BuildConfig.ApiUrl)
         .addConverterFactory(GsonConverterFactory.create())
         .build()
         .create(Requisition::class.java)}
