@@ -28,6 +28,7 @@ class WaifuDetailsActivity : AppCompatActivity() {
         viewModel.information.observe(this, Observer {
             waifuDetailsTitle.text = it[0]
             waifuDetailsDescription.text = it[2]
+            waifuDetailsSubtitle.text = it[3]
 
             Picasso.get().load(it[1]).into(waifuDetailsImage)
         })

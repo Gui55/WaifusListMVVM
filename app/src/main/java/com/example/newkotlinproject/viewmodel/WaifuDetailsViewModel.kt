@@ -19,6 +19,7 @@ class WaifuDetailsViewModel : ViewModel() {
         waifuInformation.add(0, theWaifu.name)
         waifuInformation.add(1, theWaifu.photo)
         waifuInformation.add(2, theWaifu.description)
+        waifuInformation.add(3, theWaifu.source)
 
         mutableInformation.value = waifuInformation
 

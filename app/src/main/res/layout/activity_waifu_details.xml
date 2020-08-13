@@ -18,6 +18,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:id="@+id/waifuDetailsSubtitle"
+        android:gravity="center"
+        android:textColor="@color/tabWord"
+        android:textSize="@dimen/waifu_details_subtitle"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/button_height"
+        app:layout_constraintTop_toBottomOf="@id/waifuDetailsTitle"/>
+
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
         android:layout_width="@dimen/square_cover"
@@ -25,7 +34,8 @@
         app:cardCornerRadius="11dip"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/waifuDetailsTitle">
+        app:layout_constraintTop_toBottomOf="@id/waifuDetailsSubtitle"
+        >
 
         <RelativeLayout
             android:layout_width="match_parent"
