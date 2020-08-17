@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/brancoRoaseado"
+    tools:context=".ui.view.CreateCommentActivity"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/createCommentUserName"
+        android:padding="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Name"
+        android:textColor="@color/tabWord"
+        android:textSize="@dimen/waifu_details_title"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="11dip"
+        app:layout_constraintTop_toBottomOf="@id/createCommentUserName">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/cardboarder"
+            android:padding="15dp">
+
+            <Button
+                android:layout_width="@dimen/square_cover"
+                android:onClick="sendTheComment"
+                android:background="@drawable/cardboarder"
+                android:textColor="@color/tabWord"
+                android:text="@string/send_value"
+                android:layout_height="@dimen/button_height"
+                android:layout_below="@id/createCommentUserPhoto"/>
+
+            <ImageView
+                android:id="@+id/createCommentUserPhoto"
+                android:layout_width="@dimen/square_cover"
+                android:layout_height="@dimen/square_cover"
+                android:src="@drawable/waifus_symbol_a" />
+
+            <EditText
+                android:id="@+id/createCommentContent"
+                android:layout_width="@dimen/long_text_width"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/createCommentUserPhoto"
+                android:hint="@string/comment_enter_text"
+                android:textColor="@color/tabWord"
+                android:textSize="@dimen/recycler_text_size" />
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

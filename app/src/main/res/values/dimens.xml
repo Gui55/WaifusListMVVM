@@ -15,5 +15,7 @@
     <dimen name="scroll_second_height">145dp</dimen>
     <dimen name="waifu_details_title">30dp</dimen>
     <dimen name="waifu_details_subtitle">20dp</dimen>
+    <dimen name="little_button_width">50dp</dimen>
+    <dimen name="little_button_height">30dp</dimen>
 
 </resources>

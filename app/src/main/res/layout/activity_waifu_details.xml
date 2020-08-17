@@ -8,6 +8,61 @@
     tools:context=".ui.view.WaifuDetailsActivity">
 
     <TextView
+        android:id="@+id/likeText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/tabWord"
+        android:text="0"
+        android:textSize="@dimen/waifu_details_subtitle"
+        app:layout_constraintEnd_toStartOf="@+id/cardView"
+        app:layout_constraintStart_toEndOf="@+id/likeButton"
+        app:layout_constraintTop_toBottomOf="@+id/waifuDetailsSubtitle" />
+
+    <TextView
+        android:id="@+id/dislikeText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/tabWord"
+        android:text="0"
+        android:textSize="@dimen/waifu_details_subtitle"
+        app:layout_constraintEnd_toStartOf="@+id/dislikeButton"
+        app:layout_constraintStart_toEndOf="@+id/cardView"
+        app:layout_constraintTop_toBottomOf="@+id/waifuDetailsSubtitle" />
+
+    <ImageButton
+        android:id="@+id/likeButton"
+        android:src="@drawable/heart"
+        android:background="@drawable/cardboarder"
+        android:layout_width="@dimen/little_button_width"
+        android:layout_height="@dimen/little_button_height"
+        app:layout_constraintEnd_toStartOf="@+id/cardView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/waifuDetailsSubtitle" />
+
+    <ImageButton
+        android:id="@+id/dislikeButton"
+        android:background="@drawable/cardboarder"
+        android:src="@drawable/dislike"
+        android:layout_width="@dimen/little_button_width"
+        android:layout_height="@dimen/little_button_height"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/cardView"
+        app:layout_constraintTop_toBottomOf="@+id/waifuDetailsSubtitle" />
+
+
+    <ImageButton
+        android:id="@+id/commentButton"
+        android:onClick="goToCreateComment"
+        android:background="@drawable/cardboarder"
+        android:src="@drawable/comment"
+        android:layout_width="@dimen/little_button_width"
+        android:layout_height="@dimen/little_button_height"
+        app:layout_constraintBottom_toBottomOf="@+id/cardView"
+        app:layout_constraintEnd_toStartOf="@+id/cardView"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+    <TextView
         android:id="@+id/waifuDetailsTitle"
         android:text="Title"
         android:gravity="center"
@@ -54,6 +109,7 @@
 
     <ScrollView
         android:id="@+id/scrollDescription"
+        android:paddingTop="@dimen/left_text_padding"
         android:layout_width="match_parent"
         android:layout_height="@dimen/scroll_height"
         app:layout_constraintTop_toBottomOf="@+id/cardView" >

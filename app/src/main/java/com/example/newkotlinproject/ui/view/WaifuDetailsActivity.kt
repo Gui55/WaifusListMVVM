@@ -1,7 +1,9 @@
 package com.example.newkotlinproject.ui.view
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.newkotlinproject.R
@@ -12,6 +14,7 @@ import kotlinx.android.synthetic.main.activity_waifu_details.*
 class WaifuDetailsActivity : AppCompatActivity() {
 
     private var viewModel = WaifuDetailsViewModel()
+    private val requestCommentCreation = 1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,5 +35,23 @@ class WaifuDetailsActivity : AppCompatActivity() {
 
             Picasso.get().load(it[1]).into(waifuDetailsImage)
         })
+    }
+
+    fun goToCreateComment(view: View) {
+        startActivityForResult(Intent(this, CreateCommentActivity::class.java), requestCommentCreation)
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        if(resultCode == RESULT_OK){
+
+            /*when(requestCode){
+
+                requestCommentCreation ->
+
+            }*/
+
+        }
     }
 }

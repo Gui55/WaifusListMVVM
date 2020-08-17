@@ -3,6 +3,7 @@ package com.example.newkotlinproject.repository
 import android.graphics.Bitmap
 import androidx.lifecycle.MutableLiveData
 import com.example.newkotlinproject.database.UserDAO
+import com.example.newkotlinproject.model.Comment
 import com.example.newkotlinproject.model.User
 import com.example.newkotlinproject.model.Waifu
 import com.example.newkotlinproject.webservices.Requisition
@@ -85,6 +86,11 @@ class DataRepository : KoinComponent{
 
     fun getClickedWaifu() : Waifu{
         return clickedWaifu
+    }
+
+    fun registerComment(name: String, content: String){
+        //var comment = Comment(name, content, 0, 0)
+        //requisition.
     }
 
 }

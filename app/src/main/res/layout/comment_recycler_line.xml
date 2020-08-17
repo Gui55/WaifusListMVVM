@@ -4,20 +4,45 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:background="@color/brancoRoaseado"
-    android:layout_height="@dimen/square_a">
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/commentUserName"
+        android:padding="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Name"
+        android:textColor="@color/tabWord"
+        android:textSize="@dimen/waifu_details_title"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="@dimen/square_cover"
+        android:layout_height="wrap_content"
         app:cardCornerRadius="11dip"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@id/commentUserName">
 
         <RelativeLayout
+            android:padding="15dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@drawable/cardboarder">
 
+            <ImageView
+                android:id="@+id/commentUserPhoto"
+                android:layout_width="@dimen/square_cover"
+                android:layout_height="@dimen/square_cover"
+                android:src="@drawable/waifus_symbol_a"
+                />
 
+            <TextView
+                android:id="@+id/commentContent"
+                android:text="Content"
+                android:textColor="@color/tabWord"
+                android:textSize="@dimen/recycler_text_size"
+                android:layout_width="@dimen/long_text_width"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/commentUserPhoto"/>
 
         </RelativeLayout>
 

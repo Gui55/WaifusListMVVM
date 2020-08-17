@@ -1,10 +1,11 @@
 package com.example.newkotlinproject.viewmodel
 
-import android.util.Log
+import android.graphics.Bitmap
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.newkotlinproject.repository.DataRepository
+import kotlinx.coroutines.runBlocking
 
 class WaifuDetailsViewModel : ViewModel() {
 
@@ -23,6 +24,17 @@ class WaifuDetailsViewModel : ViewModel() {
 
         mutableInformation.value = waifuInformation
 
+    }
+
+    fun getPhotoByUsername(author: String): Bitmap {
+
+        lateinit var bmp : Bitmap
+
+        runBlocking {
+            bmp = DataRepository.instance.getUserImageByName(author)
+        }
+
+        return bmp
     }
 
 }
