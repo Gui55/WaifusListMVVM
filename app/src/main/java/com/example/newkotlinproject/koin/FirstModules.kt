@@ -1,5 +1,7 @@
 package com.example.newkotlinproject.koin
 
+import android.content.Context
+import android.content.SharedPreferences
 import androidx.room.Room
 import com.example.newkotlinproject.BuildConfig
 import com.example.newkotlinproject.database.UserDatabase
@@ -17,4 +19,8 @@ val theModule = module {
         .addConverterFactory(GsonConverterFactory.create())
         .build()
         .create(Requisition::class.java)}
+
+    single<SharedPreferences>{
+        androidContext().getSharedPreferences("Logged_User", Context.MODE_PRIVATE)
+    }
 }

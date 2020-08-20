@@ -45,14 +45,8 @@ class MainViewModel : ViewModel() {
         return name.isNotEmpty() && password.isNotEmpty()
     }
 
-    fun getTheEnteredUserId(): Long {
-        return DataRepository.instance.getLoggedUser().id
-    }
-
-    fun registerTheLoggedUser(id: Long) {
-        viewModelScope.launch {
-            DataRepository.instance.setLoggedUserById(id)
-        }
+    fun userAlreadyLogged(): Boolean {
+        return DataRepository.instance.checkLoggedId()
     }
 
 }

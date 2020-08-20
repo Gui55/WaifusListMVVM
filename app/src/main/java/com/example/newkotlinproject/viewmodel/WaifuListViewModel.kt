@@ -23,4 +23,8 @@ class WaifuListViewModel : ViewModel() {
         mutableChangeActivity.value = false
     }
 
+    fun preferencesLogOff() {
+        DataRepository.instance.preferencesLogOff()
+    }
+
 }

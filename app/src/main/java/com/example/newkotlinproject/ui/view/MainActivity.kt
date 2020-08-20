@@ -4,6 +4,7 @@ import android.content.Intent
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.core.content.ContextCompat
@@ -18,8 +19,6 @@ import org.koin.android.ext.android.startKoin
 class MainActivity : AppCompatActivity() {
 
     private var viewmodel = MainViewModel()
-    lateinit var sharedPref: SharedPreferences
-    lateinit var sharedEditor: SharedPreferences.Editor
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,9 +28,6 @@ class MainActivity : AppCompatActivity() {
 
         startKoin(this, listOf(theModule))
 
-        sharedPref = getSharedPreferences("Logged_User", 0)
-        sharedEditor = sharedPref.edit()
-
         checkPreferences()
 
         observations()
@@ -39,8 +35,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun checkPreferences() {
-        if(sharedPref.contains("loggedId")){
-            viewmodel.registerTheLoggedUser(sharedPref.getLong("loogedId", 0))
+
+        if(viewmodel.userAlreadyLogged()){
             startActivity(Intent(this, WaifusListActivity::class.java))
         }
     }
@@ -59,9 +55,6 @@ class MainActivity : AppCompatActivity() {
             Toast.makeText(this, it, Toast.LENGTH_SHORT).show()
 
             if(it=="Login successful"){
-                sharedEditor.putLong("loggedId",viewmodel.getTheEnteredUserId())
-                sharedEditor.commit()
-
                 startActivity(Intent(this, WaifusListActivity::class.java))
             }
         })

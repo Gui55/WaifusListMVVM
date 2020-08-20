@@ -19,17 +19,12 @@ import kotlinx.android.synthetic.main.activity_waifus_list.*
 class WaifusListActivity : AppCompatActivity() {
 
     private var viewModel = WaifuListViewModel()
-    lateinit var sharedPref: SharedPreferences
-    lateinit var sharedEditor: SharedPreferences.Editor
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_waifus_list)
 
         viewModel = ViewModelProvider(this).get(WaifuListViewModel::class.java)
-
-        sharedPref = getSharedPreferences("Logged_User", 0)
-        sharedEditor = sharedPref.edit()
 
         configureRecyclerView()
         observations()
@@ -66,11 +61,8 @@ class WaifusListActivity : AppCompatActivity() {
         when(item.itemId){
 
             R.id.logOffItem ->{
-
-                sharedEditor.remove("loggedId")
-                sharedEditor.commit()
+                viewModel.preferencesLogOff()
                 finish()
-
             }
         }
 

@@ -3,9 +3,9 @@ package com.example.newkotlinproject.repository
 import android.graphics.Bitmap
 import androidx.lifecycle.MutableLiveData
 import com.example.newkotlinproject.database.UserDAO
-import com.example.newkotlinproject.model.Comment
 import com.example.newkotlinproject.model.User
 import com.example.newkotlinproject.model.Waifu
+import com.example.newkotlinproject.preferences.ThePreferences
 import com.example.newkotlinproject.webservices.Requisition
 import org.koin.standalone.KoinComponent
 import org.koin.standalone.inject
@@ -45,6 +45,8 @@ class DataRepository : KoinComponent{
             }
             user.password==password -> {
                 loggedUser = user
+                ThePreferences.instance.registerLoggedID(loggedUser.id)
+
                 return 0
             }
             user.password!=password -> {
@@ -90,17 +92,17 @@ class DataRepository : KoinComponent{
         return clickedWaifu
     }
 
-    fun getLoggedUser() : User{
-        return loggedUser
-    }
-
-    suspend fun setLoggedUserById(id: Long) {
-        loggedUser = userDao.getUserById(id as Long)
-    }
-
     fun registerComment(name: String, content: String, id: Int){
         //var comment = Comment(name, content, 0, 0)
         //requisition.updateComment(id, comment)
+    }
+
+    fun checkLoggedId() : Boolean {
+        return ThePreferences.instance.checkLoggedId()
+    }
+
+    fun preferencesLogOff() {
+        ThePreferences.instance.prefLogOff()
     }
 
 }
