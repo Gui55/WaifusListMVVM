@@ -5,7 +5,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.newkotlinproject.repository.DataRepository
+import com.example.newkotlinproject.data.repository.DataRepository
 import kotlinx.coroutines.launch
 
 class MainViewModel : ViewModel() {

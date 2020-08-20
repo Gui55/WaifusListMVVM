@@ -1,4 +1,4 @@
-package com.example.newkotlinproject.model
+package com.example.newkotlinproject.data.model
 
 import android.graphics.Bitmap
 import androidx.room.Entity

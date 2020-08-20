@@ -1,4 +1,4 @@
-package com.example.newkotlinproject.preferences
+package com.example.newkotlinproject.data.preferences
 
 import android.content.SharedPreferences
 import android.util.Log

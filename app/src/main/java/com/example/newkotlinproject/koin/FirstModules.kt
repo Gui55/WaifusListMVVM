@@ -4,8 +4,8 @@ import android.content.Context
 import android.content.SharedPreferences
 import androidx.room.Room
 import com.example.newkotlinproject.BuildConfig
-import com.example.newkotlinproject.database.UserDatabase
-import com.example.newkotlinproject.webservices.Requisition
+import com.example.newkotlinproject.data.database.UserDatabase
+import com.example.newkotlinproject.data.webservices.Requisition
 import org.koin.android.ext.koin.androidContext
 import org.koin.dsl.module.module
 import retrofit2.Retrofit

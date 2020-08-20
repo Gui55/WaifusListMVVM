@@ -11,7 +11,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.newkotlinproject.R
-import com.example.newkotlinproject.model.Waifu
+import com.example.newkotlinproject.data.model.Waifu
 import com.example.newkotlinproject.ui.adapter.WaifuAdapter
 import com.example.newkotlinproject.viewmodel.WaifuListViewModel
 import kotlinx.android.synthetic.main.activity_waifus_list.*

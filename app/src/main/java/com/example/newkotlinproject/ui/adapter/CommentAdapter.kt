@@ -5,7 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.newkotlinproject.R
-import com.example.newkotlinproject.model.Comment
+import com.example.newkotlinproject.data.model.Comment
 import com.example.newkotlinproject.viewmodel.WaifuDetailsViewModel
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.comment_recycler_line.view.*

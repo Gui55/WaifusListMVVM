@@ -5,7 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.newkotlinproject.R
-import com.example.newkotlinproject.model.Waifu
+import com.example.newkotlinproject.data.model.Waifu
 import com.example.newkotlinproject.viewmodel.WaifuListViewModel
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.waifu_recycler_line.view.*

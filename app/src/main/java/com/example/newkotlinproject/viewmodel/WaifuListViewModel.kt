@@ -3,8 +3,8 @@ package com.example.newkotlinproject.viewmodel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.newkotlinproject.model.Waifu
-import com.example.newkotlinproject.repository.DataRepository
+import com.example.newkotlinproject.data.model.Waifu
+import com.example.newkotlinproject.data.repository.DataRepository
 
 class WaifuListViewModel : ViewModel() {
 

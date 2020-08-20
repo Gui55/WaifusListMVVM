@@ -1,12 +1,12 @@
-package com.example.newkotlinproject.repository
+package com.example.newkotlinproject.data.repository
 
 import android.graphics.Bitmap
 import androidx.lifecycle.MutableLiveData
-import com.example.newkotlinproject.database.UserDAO
-import com.example.newkotlinproject.model.User
-import com.example.newkotlinproject.model.Waifu
-import com.example.newkotlinproject.preferences.ThePreferences
-import com.example.newkotlinproject.webservices.Requisition
+import com.example.newkotlinproject.data.database.UserDAO
+import com.example.newkotlinproject.data.model.User
+import com.example.newkotlinproject.data.model.Waifu
+import com.example.newkotlinproject.data.preferences.ThePreferences
+import com.example.newkotlinproject.data.webservices.Requisition
 import org.koin.standalone.KoinComponent
 import org.koin.standalone.inject
 import retrofit2.Call
@@ -25,7 +25,7 @@ class DataRepository : KoinComponent{
     private lateinit var loggedUser: User
 
     //Suspend functions so podem ser chamadas de outra suspend function, ou de uma coroutina
-    suspend fun createUser(email: String, username: String, password: String, image: Bitmap) : User{
+    suspend fun createUser(email: String, username: String, password: String, image: Bitmap) : User {
         var newId = userDao.addUser(
             User(
                 email, username, password, image
@@ -88,7 +88,7 @@ class DataRepository : KoinComponent{
         clickedWaifu = waifu
     }
 
-    fun getClickedWaifu() : Waifu{
+    fun getClickedWaifu() : Waifu {
         return clickedWaifu
     }
 

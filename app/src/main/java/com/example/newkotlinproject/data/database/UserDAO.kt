@@ -1,10 +1,10 @@
-package com.example.newkotlinproject.database
+package com.example.newkotlinproject.data.database
 
 import android.graphics.Bitmap
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
-import com.example.newkotlinproject.model.User
+import com.example.newkotlinproject.data.model.User
 
 @Dao
 interface UserDAO {

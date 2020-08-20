@@ -4,7 +4,7 @@ import android.graphics.Bitmap
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.newkotlinproject.repository.DataRepository
+import com.example.newkotlinproject.data.repository.DataRepository
 import kotlinx.coroutines.runBlocking
 
 class WaifuDetailsViewModel : ViewModel() {
