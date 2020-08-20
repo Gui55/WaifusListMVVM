@@ -21,7 +21,8 @@ class DataRepository : KoinComponent{
 
     private val userDao : UserDAO by inject()
     private val requisition: Requisition by inject()
-    lateinit private var clickedWaifu : Waifu
+    private lateinit var clickedWaifu : Waifu
+    private lateinit var loggedUser: User
 
     //Suspend functions so podem ser chamadas de outra suspend function, ou de uma coroutina
     suspend fun createUser(email: String, username: String, password: String, image: Bitmap) : User{
@@ -43,6 +44,7 @@ class DataRepository : KoinComponent{
                 return 2
             }
             user.password==password -> {
+                loggedUser = user
                 return 0
             }
             user.password!=password -> {
@@ -88,9 +90,17 @@ class DataRepository : KoinComponent{
         return clickedWaifu
     }
 
-    fun registerComment(name: String, content: String){
+    fun getLoggedUser() : User{
+        return loggedUser
+    }
+
+    suspend fun setLoggedUserById(id: Long) {
+        loggedUser = userDao.getUserById(id as Long)
+    }
+
+    fun registerComment(name: String, content: String, id: Int){
         //var comment = Comment(name, content, 0, 0)
-        //requisition.
+        //requisition.updateComment(id, comment)
     }
 
 }
