@@ -1,8 +1,10 @@
 package com.example.newkotlinproject.data.repository
 
 import android.graphics.Bitmap
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import com.example.newkotlinproject.data.database.UserDAO
+import com.example.newkotlinproject.data.model.Comment
 import com.example.newkotlinproject.data.model.User
 import com.example.newkotlinproject.data.model.Waifu
 import com.example.newkotlinproject.data.preferences.ThePreferences
@@ -23,7 +25,7 @@ class DataRepository : KoinComponent{
     private val requisition: Requisition by inject()
     private lateinit var clickedWaifu : Waifu
     private lateinit var loggedUser: User
-
+    val answer = MutableLiveData<Boolean>()
     //Suspend functions so podem ser chamadas de outra suspend function, ou de uma coroutina
     suspend fun createUser(email: String, username: String, password: String, image: Bitmap) : User {
         var newId = userDao.addUser(
@@ -92,9 +94,19 @@ class DataRepository : KoinComponent{
         return clickedWaifu
     }
 
-    fun registerComment(name: String, content: String, id: Int){
-        //var comment = Comment(name, content, 0, 0)
-        //requisition.updateComment(id, comment)
+    fun registerComment(name: String, content: String){
+        var comment = Comment(name, clickedWaifu.name, content, 0, 0)
+
+        requisition.insertComment(comment).enqueue(object : Callback<Comment>{
+            override fun onResponse(call: Call<Comment>, response: Response<Comment>) {
+                answer.value = true
+            }
+
+            override fun onFailure(call: Call<Comment>, t: Throwable) {
+                answer.value = false
+            }
+
+        })
     }
 
     fun checkLoggedId() : Boolean {
@@ -105,4 +117,7 @@ class DataRepository : KoinComponent{
         ThePreferences.instance.prefLogOff()
     }
 
+    suspend fun getUserByID() : User{
+        return userDao.getUserById(ThePreferences.instance.getCurrentId())
+    }
 }

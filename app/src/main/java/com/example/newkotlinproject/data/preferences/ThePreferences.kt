@@ -20,13 +20,16 @@ class ThePreferences : KoinComponent{
     }
 
     fun checkLoggedId() : Boolean{
-        Log.d("LOGEDDDDD", sharedPreferences.contains("loggedID").toString())
         return sharedPreferences.contains("loggedID")
     }
 
     fun prefLogOff() {
         sharedEditor.remove("loggedID")
         sharedEditor.commit()
+    }
+
+    fun getCurrentId() : Long{
+        return sharedPreferences.getLong("loggedID", 0)
     }
 
 }
